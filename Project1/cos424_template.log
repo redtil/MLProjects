@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 MAR 2017 19:42
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 MAR 2017 23:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -339,43 +339,99 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(./cos424_template.aux)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen134
+\WF@size=\dimen135
+\c@WF@wrappedlines=\count122
+\WF@box=\box35
+\WF@everypar=\toks23
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count123
+\float@exts=\toks24
+\float@box=\box36
+\@float@everytoks=\toks25
+\@floatcapt=\box37
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2010/01/09 v3.1m Customizing captions (AR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
+\captionmargin=\dimen136
+\captionmargin@=\dimen137
+\captionwidth=\dimen138
+\caption@indent=\dimen139
+\caption@parindent=\dimen140
+\caption@hangindent=\dimen141
+)
+\c@ContinuedFloat=\count124
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
+\c@subfigure=\count125
+\c@subtable=\count126
+)
+(./cos424_template.aux
+
+LaTeX Warning: Label `fig:picture' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+)
 \openout1 = `cos424_template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 35.
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-\AtBeginShipoutBox=\box35
+\AtBeginShipoutBox=\box38
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count122
-\scratchdimen=\dimen134
-\scratchbox=\box36
-\nofMPsegments=\count123
-\nofMParguments=\count124
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count125
-\MPscratchDim=\dimen135
-\MPnumerator=\count126
-\makeMPintoPDFobject=\count127
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count127
+\scratchdimen=\dimen142
+\scratchbox=\box39
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen143
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -391,7 +447,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 35.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -399,129 +455,163 @@ Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count128
+\c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
 
 (./cos424_template.out) (./cos424_template.out)
 \@outlinefile=\write3
 \openout3 = `cos424_template.out'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
-LaTeX Font Info:    Try loading font information for U+msa on input line 35.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 38.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 35.
+LaTeX Font Info:    Try loading font information for U+msb on input line 38.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 35.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 38.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
 
 
-LaTeX Warning: Citation `Pang2008' on page 1 undefined on input line 47.
+LaTeX Warning: Citation `Pang2008' on page 1 undefined on input line 50.
 
 
-LaTeX Warning: Citation `Tang2009' on page 1 undefined on input line 47.
+LaTeX Warning: Citation `Tang2009' on page 1 undefined on input line 50.
 
 
-LaTeX Warning: Citation `Tang2009' on page 1 undefined on input line 47.
+LaTeX Warning: Citation `Tang2009' on page 1 undefined on input line 50.
 
 
-LaTeX Warning: Citation `Pak2010' on page 1 undefined on input line 47.
+LaTeX Warning: Citation `Pak2010' on page 1 undefined on input line 50.
 
 
-LaTeX Warning: Citation `Zhang2011' on page 1 undefined on input line 47.
+LaTeX Warning: Citation `Zhang2011' on page 1 undefined on input line 50.
 
 [1{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
 
-LaTeX Warning: Citation `Pedregosa2011' on page 2 undefined on input line 54.
+LaTeX Warning: Citation `Pedregosa2011' on page 2 undefined on input line 57.
 
 
-Overfull \hbox (43.1971pt too wide) in paragraph at lines 83--86
+Overfull \hbox (43.1971pt too wide) in paragraph at lines 86--89
 []$[] []$ 
  []
 
-[2] <hyperparameter_fitting_k_nearest.png, id=38, 578.16pt x 433.62pt>
-File: hyperparameter_fitting_k_nearest.png Graphic file (type png)
 
-<use hyperparameter_fitting_k_nearest.png>
-Package pdftex.def Info: hyperparameter_fitting_k_nearest.png used on input lin
-e 117.
-(pdftex.def)             Requested size: 198.7425pt x 149.0565pt.
+LaTeX Warning: Citation `Rennie03' on page 2 undefined on input line 95.
 
-<hyperparameter_fitting_random_forest.png, id=40, 578.16pt x 433.62pt>
-File: hyperparameter_fitting_random_forest.png Graphic file (type png)
+[2] <bernoulliNBexample1.png, id=73, 414.54875pt x 180.675pt>
+File: bernoulliNBexample1.png Graphic file (type png)
 
-<use hyperparameter_fitting_random_forest.png>
-Package pdftex.def Info: hyperparameter_fitting_random_forest.png used on input
- line 124.
-(pdftex.def)             Requested size: 198.7425pt x 149.0565pt.
+<use bernoulliNBexample1.png>
+Package pdftex.def Info: bernoulliNBexample1.png used on input line 101.
+(pdftex.def)             Requested size: 207.27386pt x 90.33727pt.
+
+<bernoulliNBexample3.png, id=75, 631.35875pt x 344.28625pt>
+File: bernoulliNBexample3.png Graphic file (type png)
+
+<use bernoulliNBexample3.png>
+Package pdftex.def Info: bernoulliNBexample3.png used on input line 127.
+(pdftex.def)             Requested size: 252.53902pt x 137.71205pt.
+ [3 <./bernoulliNBexample1.png> <./bernoulliNBexample3.png>] <hyperparameter_kn
+n_1_10.png, id=89, 578.16pt x 433.62pt>
+File: hyperparameter_knn_1_10.png Graphic file (type png)
+
+<use hyperparameter_knn_1_10.png>
+Package pdftex.def Info: hyperparameter_knn_1_10.png used on input line 161.
+(pdftex.def)             Requested size: 143.09143pt x 107.313pt.
+
+<hyperparameter_knn_11_20.png, id=90, 578.16pt x 433.62pt>
+File: hyperparameter_knn_11_20.png Graphic file (type png)
+
+<use hyperparameter_knn_11_20.png>
+Package pdftex.def Info: hyperparameter_knn_11_20.png used on input line 167.
+(pdftex.def)             Requested size: 143.09143pt x 107.313pt.
+
+<hyperparameter_forest_1_30.png, id=91, 578.16pt x 433.62pt>
+File: hyperparameter_forest_1_30.png Graphic file (type png)
+
+<use hyperparameter_forest_1_30.png>
+Package pdftex.def Info: hyperparameter_forest_1_30.png used on input line 179.
+
+(pdftex.def)             Requested size: 143.09143pt x 107.313pt.
+
+<hyperparameter_forest_50_81.png, id=92, 578.16pt x 433.62pt>
+File: hyperparameter_forest_50_81.png Graphic file (type png)
+
+<use hyperparameter_forest_50_81.png>
+Package pdftex.def Info: hyperparameter_forest_50_81.png used on input line 185
+.
+(pdftex.def)             Requested size: 143.09143pt x 107.313pt.
+
+
+LaTeX Warning: Citation `Russell2003' on page 4 undefined on input line 200.
 
 No file cos424_template.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 138.
-[3 <./hyperparameter_fitting_k_nearest.png> <./hyperparameter_fitting_random_fo
-rest.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 138.
- (./cos424_template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 138.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 138.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
+[4 <./hyperparameter_knn_1_10.png> <./hyperparameter_knn_11_20.png> <./hyperpar
+ameter_forest_1_30.png> <./hyperparameter_forest_50_81.png>] [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
 
+(./cos424_template.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package rerunfilecheck Info: File `cos424_template.out' has not changed.
+(rerunfilecheck)             Checksum: 1150E4E5757F2FD717D40F69F69CC0E0;605.
 
-Package rerunfilecheck Warning: File `cos424_template.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `cos424_template.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  681C9C85847DB2672262EAA3A32840A6;501.
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 138.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
  ) 
 Here is how much of TeX's memory you used:
- 7363 strings out of 493633
- 104593 string characters out of 3143378
- 204885 words of memory out of 3000000
- 10511 multiletter control sequences out of 15000+200000
- 28063 words of font info for 71 fonts, out of 3000000 for 9000
+ 8450 strings out of 493633
+ 124014 string characters out of 3143378
+ 230263 words of memory out of 3000000
+ 11585 multiletter control sequences out of 15000+200000
+ 23115 words of font info for 53 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 37i,13n,39p,1409b,319s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,13n,39p,1409b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texl
-ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
-e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2
-011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2011
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/
-texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2011/texmf-di
-st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2011/texmf-dist/font
-s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/ur
-w/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on cos424_template.pdf (3 pages, 195095 bytes).
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
+ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
+2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2011/texmf-dist/
+fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on cos424_template.pdf (5 pages, 351817 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 27 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 164 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

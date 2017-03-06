@@ -108,13 +108,13 @@ def decisionTree(bagofwords,results):
 
 # RandomForestClassifier classifier
 def randomForest(bagofwords,results):
-    gnb = RandomForestClassifier(n_estimators=10)
+    gnb = RandomForestClassifier(n_estimators=14)
     gnb.fit(bagofwords,results)
     return(gnb)
 
 # K-nearest neighbours classifier
 def kNearestNeighbours(bagofwords, results):
-    gnb = KNeighborsClassifier(n_neighbors=3)
+    gnb = KNeighborsClassifier(n_neighbors=5)
     gnb.fit(bagofwords, results)
     return(gnb)
 
@@ -122,7 +122,7 @@ def kNearestNeighbours(bagofwords, results):
 # Classifier metrics
 #############################################################################
 
-def classifier_metrics( resultsTest, classified_test_data, classified_test_data_prob):
+def classifier_metrics( resultsTest, classified_test_data):
 
 
     # score = gaussianNB_classifier.(bowTest, resultsTest)
@@ -153,7 +153,7 @@ def classifier_metrics( resultsTest, classified_test_data, classified_test_data_
     print "accuracy: " + str(acc)
     print "accuracy2: " + str(acc2)
 
-    fpr, tpr, thresholds = metrics.roc_curve(classified_test_data, classified_test_data_prob, pos_label=1)
+    # fpr, tpr, thresholds = metrics.roc_curve(classified_test_data, classified_test_data_prob, pos_label=1)
 
     # print "fpr: "  + str(fpr)
     # print "tpr: " + str(tpr)
@@ -164,7 +164,7 @@ def classifier_metrics( resultsTest, classified_test_data, classified_test_data_
     # plt.subplot(212)
     # plt.plot(thresholds,fpr, '-o' )
     # plt.show()
-    print("AUC of the predictions: {0}".format(metrics.auc(fpr, tpr)))
+    # print("AUC of the predictions: {0}".format(metrics.auc(fpr, tpr)))
 
 ##############################################################################
 # Preparation of data to be classified
@@ -193,20 +193,21 @@ def kFold():
     # print "classes: " + str(classes)
 
     final_test_results = numpy.zeros(len(classes))
-    test_bernoulliNB_k_fold(bow, classes, final_test_results, kf)
-    test_decisionTree_k_fold(bow, classes, final_test_results, kf)
-    test_gaussianNB_k_fold(bow, classes, final_test_results, kf)
     test_multinomialNB_k_fold(bow, classes, final_test_results, kf)
-    test_randomForest_k_fold(bow, classes, final_test_results, kf)
+    test_bernoulliNB_k_fold(bow, classes, final_test_results, kf)
+    # test_gaussianNB_k_fold(bow, classes, final_test_results, kf)
     test_SVM_k_fold(bow, classes, final_test_results, kf)
+    test_decisionTree_k_fold(bow, classes, final_test_results, kf)
+    test_randomForest_k_fold(bow, classes, final_test_results, kf)
+    test_kNearestNeighbours_k_fold(bow, classes, final_test_results, kf)
 
 def kFold_hyperparameter_fitting():
     bow, results = prepare_training_data()
     final_test_results = numpy.zeros(len(results))
     kf = KFold(n_splits=10)
     kf.get_n_splits(bow)
-    # fit_hyperparameter_knearest(bow, results, final_test_results, kf)
-    fit_hyperparameter_forest(bow, results, final_test_results, kf)
+    fit_hyperparameter_knearest(bow, results, final_test_results, kf)
+    # fit_hyperparameter_forest(bow, results, final_test_results, kf)
 
 #############################################################################
 # Test Classifiers(not-k-fold)
@@ -427,7 +428,7 @@ def test_kNearestNeighbours_k_fold(bow, classes, final_test_results, kf):
 #############################################################################
 def fit_hyperparameter_knearest(bow, classes, final_test_results, kf):
     accu_arr = numpy.zeros(10)
-    for cnt in range(1,11):
+    for ind, cnt in enumerate(range(11,21)):
         start_time = time.time()
         for train_index, test_index in kf.split(bow):
             # print("TRAIN:", train_index, "TEST:", test_index)
@@ -442,11 +443,11 @@ def fit_hyperparameter_knearest(bow, classes, final_test_results, kf):
             for index, elem in enumerate(test_index):
                 final_test_results[elem] = classified_test_data[index]
         total_time = time.time() - start_time
-        accu_arr[cnt-1] = accuracy(classes, final_test_results)
+        accu_arr[ind] = accuracy(classes, final_test_results)
         final_test_results = numpy.zeros(len(final_test_results))
     print "accu_arr: " + str(accu_arr)
     import matplotlib.pyplot as plt
-    plt.plot(range(1,11), accu_arr, '-o')
+    plt.plot(range(11,21), accu_arr, '-o')
     plt.title("Accuracy vs. hyperparameter values for k-nearest neighbours classifier")
     plt.xlabel("Hyperparameter values")
     plt.ylabel("Accuracy")
@@ -455,8 +456,8 @@ def fit_hyperparameter_knearest(bow, classes, final_test_results, kf):
     print "time_taken by k-fold kNearestNeighbours classifier: " + str(total_time)
     print "*******************************************************"
 def fit_hyperparameter_forest(bow, classes, final_test_results, kf):
-    accu_arr = numpy.zeros(20)
-    for ind, cnt in enumerate(range(1,21)):
+    accu_arr = numpy.zeros(31)
+    for ind, cnt in enumerate(range(50,81)):
         start_time = time.time()
         for train_index, test_index in kf.split(bow):
             # print("TRAIN:", train_index, "TEST:", test_index)
@@ -475,7 +476,7 @@ def fit_hyperparameter_forest(bow, classes, final_test_results, kf):
         final_test_results = numpy.zeros(len(final_test_results))
     print "accu_arr: " + str(accu_arr)
     import matplotlib.pyplot as plt
-    plt.plot(range(4,84, 4), accu_arr, '-o')
+    plt.plot(range(50,81), accu_arr, '-o')
     plt.title("Accuracy vs. hyperparameter values for random forest classifier")
     plt.xlabel("Hyperparameter values")
     plt.ylabel("Accuracy")
@@ -493,18 +494,18 @@ def main(argv):
 
 
     # test_gaussianNB(bagofwords,results, resultsTest, bowTest)
-    test_multinomialNB(bagofwords,results, resultsTest, bowTest)
-    test_bernoulliNB(bagofwords, results, resultsTest, bowTest)
-    test_SVM(bagofwords,results, resultsTest, bowTest)
-    test_decisionTree(bagofwords, results, resultsTest, bowTest)
-    test_randomForest(bagofwords, results, resultsTest, bowTest)
-    test_kNearestNeighbours(bagofwords,results, resultsTest, bowTest)
+    # test_multinomialNB(bagofwords,results, resultsTest, bowTest)
+    # test_bernoulliNB(bagofwords, results, resultsTest, bowTest)
+    # test_SVM(bagofwords,results, resultsTest, bowTest)
+    # test_decisionTree(bagofwords, results, resultsTest, bowTest)
+    # test_randomForest(bagofwords, results, resultsTest, bowTest)
+    # test_kNearestNeighbours(bagofwords,results, resultsTest, bowTest)
 
-    # kFold()
+    kFold()
 
     return()
 
 
 if __name__ == "__main__":
   main(sys.argv[1:])
-  #   kFold_hyperparameter_fitting()
+    # kFold_hyperparameter_fitting()

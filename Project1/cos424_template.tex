@@ -15,7 +15,10 @@
 \usepackage{bm,bbm}
  \usepackage{amssymb}
 \usepackage{amsmath}
-
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \title{Classification of review sentiments}
 
@@ -53,8 +56,8 @@ I initially downloaded two data sets marked train.txt and test.txt. train.txt co
 \subsection{Classification Methods}
 I used 6 different classification methods using Python's SciKitLearn libraries.\cite{Pedregosa2011}
 \begin{enumerate}
-\item \emph{Multinomial Naive Bayes classifier} (NB): using multinomial implementation
-\item \emph{Bernoulli Naive Bayes classifier} (NB): using bernoulli implementation
+\item \emph{Multinomial Naive Bayes classifier} (MNB): using multinomial implementation
+\item \emph{Bernoulli Naive Bayes classifier} (BNB): using bernoulli implementation
 \item \emph{Support vector machine} (SVM): 
 \item \emph{Decision tree} (DT): 
 \item \emph{Random forest} (RF): using 100 trees
@@ -88,43 +91,118 @@ Below is brief definition of the five metrics:
 \end{aligned}$
 \end{enumerate}
 
-\section{Methods}
+\section{Spotlight Classifier: Naive Bayes Classifier}
+Naive Bayes classifier is a very popular classifier used in text classification tasks especially as a baseline tool. It is fairly simple conceptually compared to other more sophisticated classifiers however when it comes to  performance in text classification it is quite comparable even outperforming some.\cite{Rennie03}(Tackling the Poor Assumptions of Naive Bayes Text Classifiers, Rennie)
 
-\subsection{One method in detail}
-(Look at Tang et. al. A survey on sentiment detection of reviews)
-Select one of the methods you chose for application in this assignment and describe in detail the model or objective, the method for inference, and the approach for prediction in future samples. Include a description of the important assumptions relevant for these data and these analytic questions.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{bernoulliNBexample1}
+  \caption{The caption}   
+  \label{fig:picture}
+\end{figure}
+
+
+The basis of a naive bayes classifier is the conditional probability, which asks a very simple question: what is the probability that a certain random variable in our case a document, is either a positive or a negative review, given that it contains a certain sequence of words. Given a feature set of $F$ = $\mathcal \{\bm{x_1},\bm{x_2}...\bm{x_N}\}$, and a class set of $C$ = $\mathcal \{\bm{c_1},\bm{c_2}...\bm{c_N}\}$, we want to find 
+\begin{equation*}
+\arg\max_{c} P(C=c|F)
+\end{equation*}
+
+Using Bayes theorem, we know that, 
+\begin{equation*}
+P(C|x) = \frac {P(C)P(x|C)}{P(x)}
+\end{equation*}
+
+In our case the feature set contains more than one element. Hence we need to extend Bayes theorem so that C is conditioned on  all the elements of the feature set and their values. Using the chain rule of conditional probability we then can further expand the equation. However, that expanded equation can become very tractable by naively assuming that all the elements in the feature set are independent of each other. Hence the previous equation can be approximated to, 
+
+\begin{equation*}
+\alpha  \     P(C|x) = \frac {{P(C)}\prod_{i=a}^{b}P(x_i|C)}{P(x)}
+\end{equation*}
+
+However, that expanded equation can become very tractable by naively assuming that all the elements in the feature set are independent of each other. Hence the previous equation can be approximated to, Using the chain rule of conditional probability we then can further expand the equation. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{bernoulliNBexample3}
+  \caption{The caption}   
+  \label{fig:picture}
+\end{figure}
+
+
 
 \section{Results}
+\subsection{Evaluation results}
 
-\small
-   \centering
+
+
+\begin{table}[H]
+\centering
    \begin{tabular}{@{}|c|c|c|c|c|c|@{}} % Column formatting, @{} suppresses leading/trailing space 
+	
    \hline
 
    Classifier & Accu & Prec & Recall & $F_1$ & Time (s) \\ \hline 
-      MNB & 0.770 & 0.781 & 0.750 & 0.77 & 0.009 \\
-       BNB & 0.773 &  0.788 & 0.747 & 0.767 & 0.045\\
-      SVM    &  0.582 & 0.930 & 0.177 & 0.297 & 5.513\\
-        DT  &  0.715 & 0.748 & 0.723 & 0.736 & 0.817 \\
-      RT &  0.772 & 0.761 & 0.753 & 0.757 & 0.325  \\
-      KNN &  0.662 & 0.739 & 0.5 & 0.596 & 2.890 \\
+      MNB & 0.693 & 0.690 & 0.699 & 0.694 & 0.431 \\
+       BNB & 0.694&  0.696 & 0.689 & 0.693 & 0.557\\
+      SVM    &  0.686 & 0.676 & 0.713 & 0.694 & 14.431\\
+        DT  &  0.677 & 0.671 & 0.696 & 0.6832 & 14.409 \\
+      RT &  0.679 & 0.667 & 0.713 & 0.689 & 14.425  \\
+      KNN &  0.650 & 0.699 & 0.526 & 0.600 & 21.320 \\
      \hline
    \end{tabular}
-   \label{tab:classifiers}
+\end{table}
+   %\label{tab:classifiers}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
-  \includegraphics[width=0.5\linewidth]{hyperparameter_fitting_k_nearest.png}
-  \caption{A boat.}
-  \label{fig:boat1}
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hyperparameter_knn_1_10.png}
+  \caption{A subfigure}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hyperparameter_knn_11_20.png}
+  \caption{A subfigure}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A figure with two subfigures}
+\label{fig:test}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
-  \includegraphics[width=0.5\linewidth]{hyperparameter_fitting_random_forest.png}
-  \caption{A boat2.}
-  \label{fig:boat2}
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hyperparameter_forest_1_30.png}
+  \caption{A subfigure}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hyperparameter_forest_50_81.png}
+  \caption{A subfigure}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A figure with two subfigures}
+\label{fig:test}
 \end{figure}
+
+
+
+\subsection{Computational speed}
+
+However, that expanded equation can become very tractable by naively assuming that all the elements in the feature set are independent of each other. Hence the previous equation can be approximated to, Using the chain rule of conditional probability we then can further expand the equation. 
+
+
+As can be seen from  support vector machines classifier and k-nearest neighbours classifiers take a significant amount of time to train. The time given is the amount of time taken to train a 3000 document data set using 10-fold cross validation technique. The fastest classifiers are as expected Multinomial Naive Bayes and Bernoulli Naive Bayes. They are the fastest amongst the classifiers because the number of parameters required is linear to the number of features in a learning problem. "Moreover,  Maximum-likelihood training can be done by evaluating a closed-form expression,[1]which takes linear time."(Wikipedia)\cite{Russell2003}
+
+
+
+
+
 
 
 \section{Discussion and Conclusion}
