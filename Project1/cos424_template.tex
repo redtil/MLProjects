@@ -14,6 +14,7 @@
 \usepackage{multirow}
 \usepackage{bm,bbm}
  \usepackage{amssymb}
+\usepackage{amsmath}
 
 
 \title{Classification of review sentiments}
@@ -37,18 +38,60 @@ In this age where we mostly buy products be they clothes or music, we would like
 \end{abstract}
 
 \section{Introduction}
-Sentiment analysis used to be a very human task in the past. However in recent years, with the growth of online companies, the need for automated forms of sentiment analysis were found to be of most importance. Online companies like Amazon, Facebook, Twitter and Yelp are increasingly becoming dependent on machine learning algorithms to classify the sentiment of the billions of textual inputs they receive daily. In this assignment, I am interested in learning which type of classifiers perform well in classifying the sentiments of online reviews. Moreover, I want to gain the understanding of why certain classifiers perform well while others less so. 
+Sentiment analysis used to be a very human task in the past. However in recent years, with the growth of online companies, the need for automated forms of sentiment analysis were found to be of most importance. Online companies like Amazon, Facebook, Twitter and Yelp are increasingly becoming dependent on machine learning algorithms to classify the sentiment of the billions of textual inputs they receive daily.(The impact of online user reviews on hotel room sales,Ye et al.) In this assignment, I am interested in learning which type of classifiers perform well in classifying the sentiments of online reviews. Moreover, I want to gain the understanding of why certain classifiers perform well while others less so. 
 
-I evaluate 6 types of classifiers in this report. In the feature extraction process, 
+I evaluate 6 types of classifiers in this report. In the feature extraction process, I chose unigrams and then in the feature selection component selected those unigrams that appear more than 5 times in the 2400 data set. Other feature selection techniques were also used and then compared as to their impact on classifier performance such as computational speed, precision and recall. 
 
 
 \section{Related Work}
-%This is an example for citing an article \cite{zhu2009}.
+The first indepth analysis of the field of sentiment analyis and classification was done by Pang et. al in 2008.\cite{Pang2008} In trying to understand the sentiment expressed in a document one can dissect the problem to understanding the sentimental value of the words in that document and the sentences that make up that document. Moreover, one needs to distinguish between words and sentences that matter and those that don't matter. In the literature, these distinctions are known as subjectivity classification.\cite{Tang2009} Tang clearly states that, "Document sentiment classification and opinion extraction have often involved word sentiment classification techniques."\cite{Tang2009}(A survey on sentiment detection of reviews, Tang et al.)For example, Pak et. al. use a sentiment classifier that is "based on the multinomial Naive Bayes classifier that uses N-gramand POS-tags [part of speech tagging] as features."\cite{Pak2010}(Twitter as a Corpus for Sentiment Analysis and Opinion Mining, Pak et. al.)Zhang et al. found that, "accuracy is influenced by interaction between the classification models and the feature options...Character-basedbigrams are proved better features than unigrams and trigrams in capturing Cantonese sentimentorientation."\cite{Zhang2011}(Sentiment classification of Internet restaurant reviews written in Cantonese, zhang et. al.)
+
+\subsection{Data processing}
+I initially downloaded two data sets marked train.txt and test.txt. train.txt contained 2400 reviews, each marked with a 1 or a 0 by a human agent: 1 indicating a positive review and 0 a negative review. test.txt contained 600 distinct reviews from the same source. By using python's NLTK library, we were able to tokenize each document, convert it lower case words then remove words that were stop words, lemmatize and then stem it. After that we also took out words that did not appear more than 5 times in the whole data set. This resulted in a vocabulary set of size 541 words.  These 541 words were used as features of each document in a bag-of-words format; their presence in the review being marked by 1. 
+
+
+\subsection{Classification Methods}
+I used 6 different classification methods using Python's SciKitLearn libraries.\cite{Pedregosa2011}
+\begin{enumerate}
+\item \emph{Multinomial Naive Bayes classifier} (NB): using multinomial implementation
+\item \emph{Bernoulli Naive Bayes classifier} (NB): using bernoulli implementation
+\item \emph{Support vector machine} (SVM): 
+\item \emph{Decision tree} (DT): 
+\item \emph{Random forest} (RF): using 100 trees
+\item \emph{$K$-nearest neighbors} (KNN): using ten nearest neighbors and the ``KDTree" algorithm
+\end{enumerate}
+
+Each classifier was first trained using the dataset found in train.txt. Python's SciKitLearn library provides functions that fit the features of dataset with the predetermined classes for each classifier type. However to use random forest classifiers and k-nearest neighbours classifiers, we needed to fit their hyperparameters. Hence, we used 10-fold cross validation on the training dataset  and determeined the n-value which gave us the best accuracy. These n-values were then used as hyperparameters for classifiying the test data set using a random forest classifier or k-nearest neighbours. 
+
+\subsection{Evaluation}
+We evaluated the six classification methods we selected using five different metrics. We first combined the test and training datasets.Then we used 10-fold cross validation technique on the dataset to iteratively train and test portions of overall data set. This technique guarantees that each document in the data set will be used as a testing document once. After the iteration completes we began to compare the predicted class with the predetermined class of the whole combined data set using the five aforementioned metrics. These metrics are accuracy, precision, recall, $F_1$ score, and time. 
+
+Below is brief definition of the five metrics: 
+
+
+
+\begin{enumerate}
+\item $\begin{aligned}[t]
+    {Accuracy} = \frac{Number of accurate predictions}{Number of documents}
+\end{aligned}$
+\item $\begin{aligned}[t]
+    {Precision} = \frac {True Positive}{True Positive+False Positive} = 1 - False Discovery Rate
+\end{aligned}$
+\item $\begin{aligned}[t]
+    {Recall} = \frac {TruePositive}{TruePositive+FalseNegative}
+\end{aligned}$
+\item $\begin{aligned}[t]
+   \emph{$F_1$ score}=  2 *\frac {precision \times recall} {precision + recall} = 2 *\frac{TruePostive}{2*TruePositive+FalsePositive+FasleNegative}
+\end{aligned}$
+\item $\begin{aligned}[t]
+   \emph{Time} : computational speed of the program to fit the data in seconds.
+\end{aligned}$
+\end{enumerate}
 
 \section{Methods}
 
 \subsection{One method in detail}
-
+(Look at Tang et. al. A survey on sentiment detection of reviews)
 Select one of the methods you chose for application in this assignment and describe in detail the model or objective, the method for inference, and the approach for prediction in future samples. Include a description of the important assumptions relevant for these data and these analytic questions.
 
 \section{Results}
