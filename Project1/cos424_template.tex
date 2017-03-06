@@ -6,9 +6,7 @@
 \usepackage{array}
 \usepackage{tabu}
 \usepackage{cos424,times}
-\usepackage{hyperref}
-\usepackage{url}
-\usepackage{graphicx}
+\usepackage{cite}
 \usepackage{amsmath}
 %\usepackage{natbib}
 \usepackage{multirow}
@@ -37,24 +35,24 @@ Department of Electrical Engineering\\
 \maketitle
 
 \begin{abstract}
-In this age where we mostly buy products be they clothes or music, we would like to get the opinions of others before making the decision. However going through all reviews can be time consuming. Companies that faciliate this trading process would like to present their customers with a quick and easy way to gauge the overall response to the product; the first step of which will be analyzing the sentiments of each reviews. In this assignment, I attempt to find a good sentiment classifier which would classify reviews as either positive or negative, using a data set of 3000 reviews. I employed Natural Language Processing(NLP) techniques to represent the data as a bag-of-words which were then used to train six types of classifiers.  Multinomial and bernoulli naive bayes classifiers, decision trees and random forest classifiers have high precision and recall, whereas support vector machines have a significant advantage in precision while performing significantly poorly in recall. K-nearest neighbours classifier has relatively good precision but performs poorly on recall.
+In this age where we mostly buy products be they clothes or music, we would like to get the opinions of others before making the decision. However going through all reviews can be time consuming. Companies that faciliate this trading process would like to present their customers with a quick and easy way to gauge the overall response to the product; the first step of which will be analyzing the sentiments of each reviews. In this assignment, I attempt to find a good sentiment classifier which would classify reviews as either positive or negative, using a data set of 3000 reviews. I employed Natural Language Processing(NLP) techniques to represent the data as a bag-of-words which were then used to train six types of classifiers.  Almost all classifiers performed really well: having similar and high values of precision and recall. The real difference was in the computational time at which multinomial and bernoulli naive bayes classifiers significantly outperformed the rest more complex classifiers while still maintaing a good precision and recall value. 
 \end{abstract}
 
 \section{Introduction}
-Sentiment analysis used to be a very human task in the past. However in recent years, with the growth of online companies, the need for automated forms of sentiment analysis were found to be of most importance. Online companies like Amazon, Facebook, Twitter and Yelp are increasingly becoming dependent on machine learning algorithms to classify the sentiment of the billions of textual inputs they receive daily.(The impact of online user reviews on hotel room sales,Ye et al.) In this assignment, I am interested in learning which type of classifiers perform well in classifying the sentiments of online reviews. Moreover, I want to gain the understanding of why certain classifiers perform well while others less so. 
+Sentiment analysis used to be a very human task in the past. However in recent years, with the growth of online companies, the need for automated forms of sentiment analysis were found to be of most importance. Online companies like Amazon, Facebook, Twitter and Yelp are increasingly becoming dependent on machine learning algorithms to classify the sentiment of the billions of textual inputs they receive daily. In this assignment, I am interested in learning which type of classifiers perform well in classifying the sentiments of online reviews. Moreover, I want to gain the understanding of why certain classifiers perform well while others less so. 
 
 I evaluate 6 types of classifiers in this report. In the feature extraction process, I chose unigrams and then in the feature selection component selected those unigrams that appear more than 5 times in the 2400 data set. Other feature selection techniques were also used and then compared as to their impact on classifier performance such as computational speed, precision and recall. 
 
 
 \section{Related Work}
-The first indepth analysis of the field of sentiment analyis and classification was done by Pang et. al in 2008.\cite{Pang2008} In trying to understand the sentiment expressed in a document one can dissect the problem to understanding the sentimental value of the words in that document and the sentences that make up that document. Moreover, one needs to distinguish between words and sentences that matter and those that don't matter. In the literature, these distinctions are known as subjectivity classification.\cite{Tang2009} Tang clearly states that, "Document sentiment classification and opinion extraction have often involved word sentiment classification techniques."\cite{Tang2009}(A survey on sentiment detection of reviews, Tang et al.)For example, Pak et. al. use a sentiment classifier that is "based on the multinomial Naive Bayes classifier that uses N-gramand POS-tags [part of speech tagging] as features."\cite{Pak2010}(Twitter as a Corpus for Sentiment Analysis and Opinion Mining, Pak et. al.)Zhang et al. found that, "accuracy is influenced by interaction between the classification models and the feature options...Character-basedbigrams are proved better features than unigrams and trigrams in capturing Cantonese sentimentorientation."\cite{Zhang2011}(Sentiment classification of Internet restaurant reviews written in Cantonese, zhang et. al.)
+The first indepth analysis of the field of sentiment analyis and classification was done by Pang et. al in 2008.~\cite{Pang2008} In trying to understand the sentiment expressed in a document one can dissect the problem to understanding the sentimental value of the words in that document and the sentences that make up that document. Moreover, one needs to distinguish between words and sentences that matter and those that don't matter. In the literature, these distinctions are known as subjectivity classification.~\cite{Tang2009} Tang clearly states that, "Document sentiment classification and opinion extraction have often involved word sentiment classification techniques." ~\cite{Tang2009}For example, Pak et. al. use a sentiment classifier that is "based on the multinomial Naive Bayes classifier that uses N-gramand POS-tags [part of speech tagging] as features."~\cite{Pak2010}Zhang et al. found that, "accuracy is influenced by interaction between the classification models and the feature options...Character-basedbigrams are proved better features than unigrams and trigrams in capturing Cantonese sentimentorientation."~\cite{Zhang2011}
 
 \subsection{Data processing}
 I initially downloaded two data sets marked train.txt and test.txt. train.txt contained 2400 reviews, each marked with a 1 or a 0 by a human agent: 1 indicating a positive review and 0 a negative review. test.txt contained 600 distinct reviews from the same source. By using python's NLTK library, we were able to tokenize each document, convert it lower case words then remove words that were stop words, lemmatize and then stem it. After that we also took out words that did not appear more than 5 times in the whole data set. This resulted in a vocabulary set of size 541 words.  These 541 words were used as features of each document in a bag-of-words format; their presence in the review being marked by 1. 
 
 
 \subsection{Classification Methods}
-I used 6 different classification methods using Python's SciKitLearn libraries.\cite{Pedregosa2011}
+I used 6 different classification methods using Python's SciKitLearn libraries.~\cite{scikit-learn}
 \begin{enumerate}
 \item \emph{Multinomial Naive Bayes classifier} (MNB): using multinomial implementation
 \item \emph{Bernoulli Naive Bayes classifier} (BNB): using bernoulli implementation
@@ -92,14 +90,14 @@ Below is brief definition of the five metrics:
 \end{enumerate}
 
 \section{Spotlight Classifier: Naive Bayes Classifier}
-Naive Bayes classifier is a very popular classifier used in text classification tasks especially as a baseline tool. It is fairly simple conceptually compared to other more sophisticated classifiers however when it comes to  performance in text classification it is quite comparable even outperforming some.\cite{Rennie03}(Tackling the Poor Assumptions of Naive Bayes Text Classifiers, Rennie)
+Naive Bayes classifier is a very popular classifier used in text classification tasks especially as a baseline tool. It is fairly simple conceptually compared to other more sophisticated classifiers however when it comes to  performance in text classification it is quite comparable even outperforming some.~\cite{Rennie03}(Tackling the Poor Assumptions of Naive Bayes Text Classifiers, Rennie)
 
 
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{bernoulliNBexample1}
-  \caption{The caption}   
+  \caption{C is the class which has $x_1$ to $x_5$ features, while the lines are conditional probabilites. Notice $x_1$ to $x_5$ are assumed to be independent(Source:precept slides)}   
   \label{fig:picture}
 \end{figure}
 
@@ -125,15 +123,15 @@ However, that expanded equation can become very tractable by naively assuming th
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.4]{bernoulliNBexample3}
-  \caption{The caption}   
-  \label{fig:picture}
+  \caption{By using Naive Bayes equation as approximated above we can come up with a model that gives us the highest probabilty of a certain feature set belonging either to Class 1 or 0 (Source: precept slides)}   
+  \label{}
 \end{figure}
 
 
 
 \section{Results}
 \subsection{Evaluation results}
-
+From Table~\ref{tab:classifiers} we can see that after performing a 10-fold cross validation training/testing on the whole dataset, the least sophisticated and fastest classifers namely multinomial naive bayes and bernoulli naive bayes classifiers perform better in accuracy, precision and computing time. This is to be somewhat expected as the problem that was at hand especially with the feature extraction and selection techniques I used, did not require a highly complex classifier. Even though it was not tested for this task, if feature selection was performed using support vector machine with linear kernel and $l_1$ penalty, the more complicated classifiers would begin to outperform the naive bayes classifiers. 
 
 
 \begin{table}[H]
@@ -151,25 +149,30 @@ However, that expanded equation can become very tractable by naively assuming th
       KNN &  0.650 & 0.699 & 0.526 & 0.600 & 21.320 \\
      \hline
    \end{tabular}
+\caption{{\bf Results from six classifiers on 3000 reviews dataset.} For each classifier, we report precision, recall,  $F_1$-scores, and wall clock time in seconds for the one-versus-rest classification task with 10-fold cross validation.}
+   \label{tab:classifiers}
 \end{table}
-   %\label{tab:classifiers}
+
+I used 10-fold cross validation to tune hyperparameters for the k-nearest neighbours classifier. It is clear from the  Figure~\ref{fig:sub1} and Figure~\ref{fig:sub2} that as the hyperparameter value increased, the accuracy of the classifier generally decreases. From the figures, I was able to determine tht 5 is the optimal hyperparamater for the classifier together with the given data set.  It should be noted that I tuned the hyperparameter without including the test data set. I included the test data set only after the hyperparameter had been tuned. 
+
+Moreover, as can be seen from Figure~\ref{fig:sub3} and Figure~\ref{fig:sub4}, there is a general but very slight decrease of accuracy as you increase the hyperparameter for a random forest classifier. Moreover, with an increase of the hyperparameter there was an increase of computational time taken.As can be seen from the figures, it seems like 14 is the optimal hyperparameter value for the problem we are facing. I used 14 to evalute the performance of the random forest classifier. 
 
 \begin{figure}[H]
 \centering
 \begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{hyperparameter_knn_1_10.png}
-  \caption{A subfigure}
+  \caption{hyperparamter values between 1-10}
   \label{fig:sub1}
 \end{subfigure}%
 \begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{hyperparameter_knn_11_20.png}
-  \caption{A subfigure}
+  \caption{hyperparamter values between 11-20}
   \label{fig:sub2}
 \end{subfigure}
-\caption{A figure with two subfigures}
-\label{fig:test}
+\caption{Accuracy vs. hyperparameter values for k-nearest neighbours classifier}
+\label{fig:test1}
 \end{figure}
 
 \begin{figure}[H]
@@ -177,27 +180,24 @@ However, that expanded equation can become very tractable by naively assuming th
 \begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{hyperparameter_forest_1_30.png}
-  \caption{A subfigure}
-  \label{fig:sub1}
+  \caption{hyperparamter values between 0-30}
+  \label{fig:sub3}
 \end{subfigure}%
 \begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{hyperparameter_forest_50_81.png}
-  \caption{A subfigure}
-  \label{fig:sub2}
+  \caption{hyperparamter values between 50-80}
+  \label{fig:sub4}
 \end{subfigure}
-\caption{A figure with two subfigures}
-\label{fig:test}
+\caption{Accuracy vs. hyperparameter values for random forest classifier}
+\label{fig:test2}
 \end{figure}
 
 
 
 \subsection{Computational speed}
 
-However, that expanded equation can become very tractable by naively assuming that all the elements in the feature set are independent of each other. Hence the previous equation can be approximated to, Using the chain rule of conditional probability we then can further expand the equation. 
-
-
-As can be seen from  support vector machines classifier and k-nearest neighbours classifiers take a significant amount of time to train. The time given is the amount of time taken to train a 3000 document data set using 10-fold cross validation technique. The fastest classifiers are as expected Multinomial Naive Bayes and Bernoulli Naive Bayes. They are the fastest amongst the classifiers because the number of parameters required is linear to the number of features in a learning problem. "Moreover,  Maximum-likelihood training can be done by evaluating a closed-form expression,[1]which takes linear time."(Wikipedia)\cite{Russell2003}
+As can be seen from  except for multinomial naive bayes and bernoulli naive bayes, all the rest of the classifiers  take a significant amount of time to train. The time given is the amount of time taken to train a 3000 document data set using 10-fold cross validation technique. The fastest classifiers are as expected Multinomial Naive Bayes and Bernoulli Naive Bayes. They are the fastest amongst the classifiers because the number of parameters required is linear to the number of features in a learning problem. "Moreover,  Maximum-likelihood training can be done by evaluating a closed-form expression,[1]which takes linear time."(Wikipedia)\cite{Russell2003}
 
 
 
@@ -206,11 +206,13 @@ As can be seen from  support vector machines classifier and k-nearest neighbours
 
 
 \section{Discussion and Conclusion}
+In this work, I compared 6 classifiers to predict if a certain review had a positive or a negative sentiment. I found that all six classifiers performed relatively closely in terms of precision and recall values but the time taken to train and test data was significantly lower for the naive bayes classifiers. 
 
-\subsubsection*{Acknowledgments}
+If we were to perform more rigorous feature selection, the more complicated classifiers would perform better in precision and recall but also on time of computation. Moreover, future work can be done by focusing on the feature extraction and feature selection process, further tuning the response of each classifier so as to get the best result.  
+%\subsubsection*{Acknowledgments}
 
 
 \bibliography{ref}
-\bibliographystyle{plain}
+\bibliographystyle{plos2015}
 
 \end{document}
