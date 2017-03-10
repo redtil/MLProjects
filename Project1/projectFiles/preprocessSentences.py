@@ -1,3 +1,6 @@
+#Author:Rediet Tilahun Desta
+#Date: March 6, 2017
+
 import nltk, re, pprint
 from nltk import word_tokenize
 from nltk.corpus import stopwords

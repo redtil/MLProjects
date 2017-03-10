@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  6 MAR 2017 00:34
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  6 MAR 2017 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -552,9 +552,6 @@ Package rerunfilecheck Info: File `cos424_template.out' has not changed.
 
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
  ) 
